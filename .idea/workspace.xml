@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb072c2-a5f6-4542-9a12-ca7a633e37fc" name="Changes" comment="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
       <workItem from="1718642715807" duration="984000" />
       <workItem from="1718643711363" duration="9093000" />
       <workItem from="1720971549569" duration="2234000" />
-      <workItem from="1720973823366" duration="7545000" />
+      <workItem from="1720973823366" duration="7666000" />
     </task>
     <task id="LOCAL-00001" summary="Add main.py file.">
       <option name="closed" value="true" />
@@ -138,7 +138,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720981405155</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
+      <option name="closed" value="true" />
+      <created>1720981458038</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720981458038</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
+      <option name="closed" value="true" />
+      <created>1720981493969</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720981493969</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -39,7 +39,7 @@ if __name__ == '__main__':
                 detected_text += temp + ' albo ' + text
                 print(f"Detected License Plate Text: {temp}")
             print(detected_text)
-            # Annotate the image with the detected text above the license plate
+            # Text
             font = cv2.FONT_HERSHEY_SIMPLEX
             font_scale = 1
             font_thickness = 2
@@ -50,7 +50,7 @@ if __name__ == '__main__':
             text_x = x1 + (x2 - x1) // 2 - text_width // 2
             text_y = y1 - 10  # Place text slightly above the license plate
 
-            # Draw text background rectangle
+            # Draw background behind text
             cv2.rectangle(image, (text_x - 5, text_y - text_height - 5),
                           (text_x + text_width + 5, text_y + 5), (0, 0, 0), -1)
 
