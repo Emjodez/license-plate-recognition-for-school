@@ -3,15 +3,15 @@ if __name__ == '__main__':
     import easyocr
     from ultralytics import YOLO as yolo
     import matplotlib.pyplot as plt
+    import os
 
-    model = yolo("runs/detect/train9/weights/best.pt")
+    model = yolo('runs/detect/train9/weights/best.pt')
 
-    image_path = "auto.jpg"
+    image_path = 'images/auto2.jpg'
     results = model.predict(image_path)
-
     image = cv2.imread(image_path)
 
-    reader = easyocr.Reader(['en'])
+    reader = easyocr.Reader(['pl'])
 
     for result in results:
         # Assuming there's only one result for the license plate
@@ -22,21 +22,27 @@ if __name__ == '__main__':
             # crop license plate from image
             license_plate_region = image[y1:y2, x1:x2]
 
+            # Find text using OCR
             plt.imshow(license_plate_region)
             plt.show()
-            # Find text using OCR
-            ocr_result = reader.readtext(license_plate_region, low_text=0.3, allowlist ='0123456789ZXCVBNMASDFGHJKLQWERTYUIOP')
+            ocr_result = reader.readtext(license_plate_region, allowlist ='0123456789ZXCVBNMASDFGHJKLQWERTYUIOP')
             detected_text = ''
             # Extract and print the text
-            for (bbox, text, prob) in ocr_result:
-                temp = ""
+            prob = ''
+            for (bbo, text, prob) in ocr_result:
+                prob = prob
+                temp = ''
                 for i in range(len(text)):
-                    if text[i] == "S" or text[i] == "5":
-                        temp += "S"
+                    if text[i] == 'S' or text[i] == '5':
+                        temp += 'S'
                     else:
                         temp += text[i]
-                detected_text += temp + ' albo ' + text
-                print(f"Detected License Plate Text: {temp}")
+                if temp != text:
+                    detected_text += temp + ' albo ' + text
+                else:
+                    detected_text += text
+
+            detected_text += '' + str(round(prob, 2)*100) + '%'
             print(detected_text)
             # Text
             font = cv2.FONT_HERSHEY_SIMPLEX
