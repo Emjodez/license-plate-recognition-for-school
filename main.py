@@ -7,11 +7,11 @@ if __name__ == '__main__':
 
     model = yolo('runs/detect/train9/weights/best.pt')
 
-    image_path = 'images/auto2.jpg'
+    image_path = 'images/auto.jpg'
     results = model.predict(image_path)
     image = cv2.imread(image_path)
 
-    reader = easyocr.Reader(['pl'])
+    reader = easyocr.Reader(['en'])
 
     for result in results:
         # Assuming there's only one result for the license plate
@@ -25,24 +25,29 @@ if __name__ == '__main__':
             # Find text using OCR
             plt.imshow(license_plate_region)
             plt.show()
-            ocr_result = reader.readtext(license_plate_region, allowlist ='0123456789ZXCVBNMASDFGHJKLQWERTYUIOP')
+            scale_factor = 2
+            upscaled = cv2.resize(license_plate_region, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
+            blur = cv2.blur(upscaled, (5, 5))
+            ocr_result = reader.readtext(blur, allowlist ='0123456789ZXCVBNMASDFGHJKLQWERTYUIOP', text_threshold=0.3)
             detected_text = ''
             # Extract and print the text
             prob = ''
+            actual_text = ''
             for (bbo, text, prob) in ocr_result:
                 prob = prob
+                print(prob)
                 temp = ''
-                for i in range(len(text)):
-                    if text[i] == 'S' or text[i] == '5':
+                '''for i in range(len(text)):
+                    if text[i] == 'S':
                         temp += 'S'
                     else:
                         temp += text[i]
                 if temp != text:
                     detected_text += temp + ' albo ' + text
                 else:
-                    detected_text += text
-
-            detected_text += '' + str(round(prob, 2)*100) + '%'
+                    detected_text += text '''
+                actual_text += text
+            detected_text += actual_text + ' ' + f'{(round(prob, 2)*100):.2f}' + '%'
             print(detected_text)
             # Text
             font = cv2.FONT_HERSHEY_SIMPLEX
