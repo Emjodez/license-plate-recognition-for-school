@@ -3,11 +3,10 @@ if __name__ == '__main__':
     import easyocr
     from ultralytics import YOLO as yolo
     import matplotlib.pyplot as plt
-    import numpy as np
 
     model = yolo("runs/detect/train9/weights/best.pt")
 
-    image_path = "octavia-skoda-number-plate-poland.jpg"
+    image_path = "auto.jpg"
     results = model.predict(image_path)
 
     image = cv2.imread(image_path)

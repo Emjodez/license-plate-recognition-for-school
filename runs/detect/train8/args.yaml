@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: Car Detection YOLOv8/data.yaml
+data: CardetectionYOLOv8/data.yaml
 epochs: 100
 time: null
 patience: 100
