@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cb072c2-a5f6-4542-9a12-ca7a633e37fc" name="Changes" comment="Delete unneeded files.">
+    <list default="true" id="8cb072c2-a5f6-4542-9a12-ca7a633e37fc" name="Changes" comment="Delete unnecessary files.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auto.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/auto.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +72,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PycharmProjects\license-plate-recognition-for-school\backup" />
       <recent name="D:\PycharmProjects\license-plate-recognition-for-school\images" />
       <recent name="D:\PycharmProjects\license-plate-recognition-for-school" />
     </key>
@@ -99,7 +99,7 @@
       <workItem from="1718642715807" duration="984000" />
       <workItem from="1718643711363" duration="9093000" />
       <workItem from="1720971549569" duration="2234000" />
-      <workItem from="1720973823366" duration="8346000" />
+      <workItem from="1720973823366" duration="8413000" />
     </task>
     <task id="LOCAL-00001" summary="Add main.py file.">
       <option name="closed" value="true" />
@@ -181,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720982090677</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Delete unnecessary files.">
+      <option name="closed" value="true" />
+      <created>1720982278905</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720982278905</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +211,8 @@
     <MESSAGE value="Add main.py file." />
     <MESSAGE value="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes." />
     <MESSAGE value="Delete unneeded files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete unneeded files." />
+    <MESSAGE value="Delete unnecessary files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete unnecessary files." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/license_plate_recognition_for_school$main.coverage" NAME="main Coverage Results" MODIFIED="1720981151664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
