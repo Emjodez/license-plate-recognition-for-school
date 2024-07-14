@@ -45,7 +45,7 @@ if __name__ == '__main__':
                 if temp != text:
                     detected_text += temp + ' albo ' + text
                 else:
-                    detected_text += text '''
+                    detected_text += text  '''
                 actual_text += text
             detected_text += actual_text + ' ' + f'{(round(prob, 2)*100):.2f}' + '%'
             print(detected_text)
