@@ -1,56 +1,64 @@
-import cv2
-from matplotlib import pyplot as plt
-import numpy as np
-import imutils
-import easyocr
-import time
-def findLicensePlate(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
+if __name__ == '__main__':
+    import cv2
+    import easyocr
+    from ultralytics import YOLO as yolo
+    import matplotlib.pyplot as plt
+    import numpy as np
 
-    bfilter = cv2.bilateralFilter(gray, 11, 17, 17) # Reduce Noise
-    edged = cv2.Canny(bfilter, 30, 200) # Detect edges
-    plt.imshow(cv2.cvtColor(edged, cv2.COLOR_BGR2RGB))
+    model = yolo("runs/detect/train9/weights/best.pt")
 
-    keypoints = cv2.findContours(edged.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    contours = imutils.grab_contours(keypoints)
-    contours = sorted(contours, key=cv2.contourArea, reverse=True)[:10]
-    location = None
-    for contour in contours:
-        approx = cv2.approxPolyDP(contour, 10, True)
-        if len(approx) == 4:
-            location = approx
-            break
+    image_path = "octavia-skoda-number-plate-poland.jpg"
+    results = model.predict(image_path)
 
-    mask = np.zeros(gray.shape, np.uint8)
-    if location is not None:
-        new_image = cv2.drawContours(mask, [location], 0, 255, -1)
-        new_image = cv2.bitwise_and(img, img, mask=mask)
-        plt.imshow(new_image)
-        cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB)
-        plt.show()
-        (x,y) = np.where(mask==255)
-        (x1, y1) = (np.min(x), np.min(y))
-        (x2, y2) = (np.max(x), np.max(y))
-        cropped_image = gray[x1:x2+1, y1:y2+1]
-        plt.imshow(cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB))
+    image = cv2.imread(image_path)
 
-        reader = easyocr.Reader(['pl'])
-        result = reader.readtext(cropped_image)
+    reader = easyocr.Reader(['en'])
 
-        if len(result) > 0:
-            text = result[0][-2]
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            res = cv2.putText(img, text= text, org=(approx[0][0][0], approx[1][0][1]+60), fontFace=font, fontScale=1, color=(0, 255, 0), thickness=2, lineType = cv2.LINE_AA)
-            res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
-            plt.imshow(cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
+    for result in results:
+        # Assuming there's only one result for the license plate
+        for box in result.boxes:
+            # Extract the bounding box coordinates
+            x1, y1, x2, y2 = map(int, box.xyxy[0])
+
+            # crop license plate from image
+            license_plate_region = image[y1:y2, x1:x2]
+
+            plt.imshow(license_plate_region)
             plt.show()
-    else:
-        print("No license plate detected")
+            # Find text using OCR
+            ocr_result = reader.readtext(license_plate_region, low_text=0.3, allowlist ='0123456789ZXCVBNMASDFGHJKLQWERTYUIOP')
+            detected_text = ''
+            # Extract and print the text
+            for (bbox, text, prob) in ocr_result:
+                temp = ""
+                for i in range(len(text)):
+                    if text[i] == "S" or text[i] == "5":
+                        temp += "S"
+                    else:
+                        temp += text[i]
+                detected_text += temp + ' albo ' + text
+                print(f"Detected License Plate Text: {temp}")
+            print(detected_text)
+            # Annotate the image with the detected text above the license plate
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            font_scale = 1
+            font_thickness = 2
+            text_size = cv2.getTextSize(detected_text, font, font_scale, font_thickness)[0]
+            text_width, text_height = text_size
 
-cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-time.sleep(1.000)
-while (True):
-    ret, frame = cap.read()
-    findLicensePlate(frame)
-    time.sleep(1)
+            # Calculate text position
+            text_x = x1 + (x2 - x1) // 2 - text_width // 2
+            text_y = y1 - 10  # Place text slightly above the license plate
+
+            # Draw text background rectangle
+            cv2.rectangle(image, (text_x - 5, text_y - text_height - 5),
+                          (text_x + text_width + 5, text_y + 5), (0, 0, 0), -1)
+
+            # Draw text
+            cv2.putText(image, detected_text, (text_x, text_y),
+                        font, font_scale, (255, 255, 255), font_thickness, lineType=cv2.LINE_AA)
+
+            plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+            plt.title('Rejestracja pojazdu')
+            plt.axis('off')  # Hide axis
+            plt.show()
