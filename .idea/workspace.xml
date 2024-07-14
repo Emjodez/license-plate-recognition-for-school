@@ -5,21 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb072c2-a5f6-4542-9a12-ca7a633e37fc" name="Changes" comment="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
-      <change afterPath="$PROJECT_DIR$/auto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/octavia-skoda-number-plate-poland.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/F1_curve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/PR_curve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/P_curve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/R_curve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/confusion_matrix.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/confusion_matrix_normalized.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/results.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch0_labels.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch0_pred.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch1_labels.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch1_pred.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch2_labels.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runs/detect/train9/val_batch2_pred.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +96,7 @@
       <workItem from="1718642715807" duration="984000" />
       <workItem from="1718643711363" duration="9093000" />
       <workItem from="1720971549569" duration="2234000" />
-      <workItem from="1720973823366" duration="7433000" />
+      <workItem from="1720973823366" duration="7545000" />
     </task>
     <task id="LOCAL-00001" summary="Add main.py file.">
       <option name="closed" value="true" />
@@ -137,7 +122,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720981311919</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
+      <option name="closed" value="true" />
+      <created>1720981380501</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720981380501</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implement Machine Learning and EasyOCR for license plate detection. Code adjustments for future changes.">
+      <option name="closed" value="true" />
+      <created>1720981405155</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720981405155</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
