@@ -62,3 +62,6 @@ if __name__ == '__main__':
             plt.title('Rejestracja pojazdu')
             plt.axis('off')  # Hide axis
             plt.show()
+
+        # Project fully made by Emjodez/Michal S
+        # https://github.com/Emjodez
